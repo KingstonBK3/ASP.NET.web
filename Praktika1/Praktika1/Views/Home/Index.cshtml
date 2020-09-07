@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Greeting</h2>
+<div>
+    @ViewBag.Hello
+    <br />
+    @ViewBag.Greeting
+
+    <hr />
+    <h2>Invite everyone on party!</h2>
+    <h3>You invited.</h3>
+    <!--Helper link-->
+    <div class="btn btn-block">
+        @Html.ActionLink("Register on party","RegisterForm")
+    </div>
+</div>
+

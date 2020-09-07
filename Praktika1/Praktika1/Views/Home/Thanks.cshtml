@@ -1,0 +1,23 @@
+﻿@model Praktika1.Models.QuestResponse
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<h2>Thanks</h2>
+<div class="text-center">
+    <h1>Your answer is done, @Model.Name</h1>
+    @if (Model.WillAttend == true)
+    {
+        @:Waiting you, <b>@Model.Name</b>
+    }
+    else
+    {
+        @:Too bad, u cant come
+    }
+</div>
+<hr />
+<div class="btn btn-block"><!-- Link Razor -->
+    @Html.ActionLink("Go to Home page","Index")
+</div>
+

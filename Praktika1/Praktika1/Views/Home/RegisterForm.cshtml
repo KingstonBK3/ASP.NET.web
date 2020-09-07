@@ -1,0 +1,38 @@
+﻿@model Praktika1.Models.QuestResponse
+
+@{
+    ViewBag.Title = "RegisterForm";
+}
+
+<h2>RegisterForm</h2>
+
+@using (Html.BeginForm()) 
+{
+    <div class="form-group">
+        <label>Your Name:</label>
+        @Html.TextBoxFor(x=>x.Name, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Your Email:</label>
+        @Html.TextBoxFor(x=>x.Email, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Your Phone:</label>
+        @Html.TextBoxFor(x=>x.Phone, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Wait for u?</label>
+        @Html.DropDownListFor(x => x.WillAttend,
+       new[]
+       {
+           new SelectListItem(){ Text="Yes, i can",Value=bool.TrueString},
+           new SelectListItem(){ Text="Yes, i cant",Value=bool.FalseString},
+       },"Your choise?", new { @class = "form-control" }
+       
+       )
+    </div>
+    <div class="text-center">
+        <input type="submit" value="Send Answer" class="btn btn-block"/>
+    </div>
+}
+
