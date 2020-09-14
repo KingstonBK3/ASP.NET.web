@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Hotel info</h2>
+@foreach (var city in ViewBag.Cities)
+{
+<article>
+    @foreach (var hotel in city.Hotels)
+    {
+        if(hotel.Id==ViewBag.HotelId)
+        {
+        <div style="width:500px; float:left;">
+            <h4>@hotel.Name</h4>
+            <img src=@hotel.PhotoFile align="left" style="margin:7px 7px 7px 0;" />
+            <p><b>Services:</b><br />@hotel.Services</p>
+            <p><b>Address:</b><br />@city.Titel,@hotel.Address</p>
+        </div>
+        <div style="clear:both"></div>
+        @Html.ActionLink("Back", "Index")
+        }
+    }
+</article>
+}
+

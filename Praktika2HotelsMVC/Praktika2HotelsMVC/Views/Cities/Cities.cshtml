@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "CitiesHotels";
+}
+
+<h2>Cities</h2>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cities</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var city in ViewBag.Cities)
+            {
+            <tr>
+                <th scope="row">@city.Titel</th>
+                <td>@city.Titel</td>
+                <td>@Html.ActionLink("Отели", "Hotels", new { id = city.Id })</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+           
+
