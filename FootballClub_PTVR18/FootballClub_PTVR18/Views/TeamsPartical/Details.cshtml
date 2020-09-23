@@ -1,0 +1,39 @@
+﻿@model FootballClub_PTVR18.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach)
+        </dd>
+    </dl>
+</div>
+@{ 
+    Html.RenderAction("PlayersInTeam", new { id = Model.Id });
+}
+<p style="margin-top:20px;">
+    Players in team: <b>@Model.Name</b>: @Model.Players.Count()
+</p>
+
+<p>|
+    @Html.ActionLink("Back to List", "Index")
+</p>
