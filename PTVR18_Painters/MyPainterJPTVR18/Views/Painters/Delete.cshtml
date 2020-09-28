@@ -4,7 +4,7 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Удаление</h2>
 
 <h3>Удалить запись о художнике @Html.DisplayFor(model => model.Name)</h3>
 <div>
@@ -45,13 +45,13 @@
                 <img src="@Url.Action("GetImage", new { Model.Id})" class="img-rounded" />
             }
         </dd>
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.PhotoType)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PhotoType)
-        </dd>
+        </dd>*@
 
     </dl>
 

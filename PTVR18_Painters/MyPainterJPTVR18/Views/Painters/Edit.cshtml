@@ -4,16 +4,15 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Редактировать</h2>
 
 
-@using (Html.BeginForm("Edit", "Players", FormMethod.Post, new
-{ enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Painters", FormMethod.Post, new{ enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Painter</h4>
+    <h4>Художник</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
@@ -51,7 +50,7 @@
            @class = "form-control" } })
             @if (Model.Photo != null)
             {
-                <img src="@Url.Action("GetImage", new { Model.Id })" class="imgrounded" width="300"/>
+                <img src="@Url.Action("GetImage", new { Model.Id })" class="img-rounded" width="200"/>
             }
             <input type="file" name="Image" class="form-control" />
             @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "textdanger" })

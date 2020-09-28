@@ -7,21 +7,26 @@
 <h2>Художники и картины</h2>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
-            <h4>@Model.Name</h4>
+        <div class="col-md-8 col-sm-8">
             <p>
                 <b>
-                    Country:
+                    Имя:
+                </b>
+                @Model.Name
+            </p>
+            <p>
+                <b>
+                    Страна:
                 </b>
                 @Model.Country
             </p>
             @if (Model.Photo != null)
             {
-                <img src="@Url.Action("GetImage", new { Model.Id })" class="img-rounded img-details" />
+                <img src="@Url.Action("GetImage", new { Model.Id })" class="img-rounded img-details" width="300" />
             }
-            <p class="margint-2">
+            <p class="margint-2" style="margin-top:2%;">
                 <b>
-                    Biography:
+                    Биография:
                 </b>
                 @Model.Biography
             </p>
@@ -29,7 +34,7 @@
     </div>
 </div>
 <hr />
-<h2>Картины художника @Model.Name</h2>
+<h2>Картины художника: @Model.Name</h2>
 @{
     Html.RenderAction("PicturesInPainters", new { id = Model.Id });
 }

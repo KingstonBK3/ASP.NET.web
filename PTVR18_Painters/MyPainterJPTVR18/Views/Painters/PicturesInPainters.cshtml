@@ -11,7 +11,7 @@
         @foreach (var p in Model)
         {
             <div class="col-md-4">
-                <h4>@p.Title</h4>
+                <h4><a href="@Url.Action("Details", "Pictures", new { id = p.Id })" class="margint-2">@p.Title</a></h4>
                 <p>
                     <b>
                         Музей:
@@ -20,9 +20,9 @@
                 </p>
                 @if (p.Canvas != null)
                 {
-                    <img src="@Url.Action("GetImage","Pictures", new { p.Id })" class="img-rounded img" />
+                    <img src="@Url.Action("GetImage","Pictures", new { p.Id })" class="img-rounded img" width="300"/>
                 }
-                <a href="@Url.Action("Details", "Pictures", new { id = p.Id })" class="margint-2">@p.Title</a>
+                @*<a href="@Url.Action("Details", "Pictures", new { id = p.Id })" class="margint-2">@p.Title</a>*@
             </div>
         }
     </div>
