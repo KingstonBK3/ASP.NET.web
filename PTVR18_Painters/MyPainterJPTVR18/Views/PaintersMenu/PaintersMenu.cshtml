@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MyPainterJPTVR18.Models.Painter>
+
+@{
+    ViewBag.Title = "PaintersMenu";
+}
+
+
+    <h2>Меню художников</h2>
+
+    <ul id="categories">
+        <li>@Html.ActionLink("Все художники", "Index")</li>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Name, "Browse", "PaintersMenu", new { id = item.Id }, null)
+            </li>
+        }
+    </ul>
+

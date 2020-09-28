@@ -1,0 +1,24 @@
+﻿@model MyPainterJPTVR18.Models.Painter
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2>Просматриваем художника: @Model.Name</h2>
+@if (Model.pictures.Count() > 0)
+{
+    <ul>
+        @foreach (var p in Model.pictures)
+        {
+            <li>
+
+                <a href="@Url.Action("Details", "Pictures", new { id = p.Id })">@p.Title - year (@p.Year)</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No pictures</p>
+}
+

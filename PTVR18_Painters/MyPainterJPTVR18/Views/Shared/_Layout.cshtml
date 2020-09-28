@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - PTVR18 Muntjan Andrei</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -22,12 +22,33 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Художники", "Index", "Painters")</li>
                     <li>@Html.ActionLink("Картины", "Index", "Pictures")</li>
+                    <li>@Html.ActionLink("Меню художников", "Index", "PaintersMenu")</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+
+        @{ var MyController = ViewContext.RouteData.Values["controller"];}
+
+        @if (MyController.ToString() == "PaintersMenu")
+        {
+            <div style="margin-top:20px;">
+                @{
+                    Html.RenderAction("PaintersMenu", "PaintersMenu");
+                }
+                <div style="margin-left:25%; min-height:450px;">
+                    @RenderBody()
+                </div>
+            </div>
+                    }
+                    else
+                    {
+                        <div style="min-height:450px;">
+                            @RenderBody()
+                        </div>
+                    }
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - PTVR18 Muntjan Andrei</p>
