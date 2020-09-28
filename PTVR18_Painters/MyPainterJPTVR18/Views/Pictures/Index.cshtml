@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MyPainterJPTVR18.Models.Picture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Picture</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var picture in Model)
+        {
+            <div class="col-md-3 text-center">
+                <h3>@picture.Title</h3>
+                <h4>@picture.painter</h4>
+                @if (picture.Canvas != null)
+                {
+                    <img src="@Url.Action("GetImage", new { picture.Id })" class="img-rounded img" />
+                }
+                <div class="margint-2">
+                    @Html.ActionLink("Edit", "Edit", new { id = picture.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = picture.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = picture.Id })
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MyPainterJPTVR18.Models.Picture>
+
+@{
+    ViewBag.Title = "PicturesInPainters";
+}
+
+<h2>PicturesInPainters</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-md-4">
+                <h4>@p.Title</h4>
+                <p>
+                    <b>
+                        Музей:
+                    </b>
+                    @p.Museum
+                </p>
+                @if (p.Canvas != null)
+                {
+                    <img src="@Url.Action("GetImage","Pictures", new { p.Id })" class="img-rounded img" />
+                }
+                <a href="@Url.Action("Details", "Pictures", new { id = p.Id })" class="margint-2">@p.Title</a>
+            </div>
+        }
+    </div>
+</div>

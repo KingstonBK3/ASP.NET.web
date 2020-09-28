@@ -1,0 +1,38 @@
+﻿@model MyPainterJPTVR18.Models.Painter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Художники и картины</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>@Model.Name</h4>
+            <p>
+                <b>
+                    Country:
+                </b>
+                @Model.Country
+            </p>
+            @if (Model.Photo != null)
+            {
+                <img src="@Url.Action("GetImage", new { Model.Id })" class="img-rounded img-details" />
+            }
+            <p class="margint-2">
+                <b>
+                    Biography:
+                </b>
+                @Model.Biography
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<h2>Картины художника @Model.Name</h2>
+@{
+    Html.RenderAction("PicturesInPainters", new { id = Model.Id });
+}
+<p>
+    @Html.ActionLink("Художники", "Index")
+</p>

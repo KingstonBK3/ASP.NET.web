@@ -1,0 +1,64 @@
+﻿@model MyPainterJPTVR18.Models.Picture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Picture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Автор:
+        </dt>
+
+        <dd>
+            <a href="@Url.Action("Details", "Painter", new { id = Model.painter.Id })">@Model.painter.Name</a>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Museum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Museum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canvas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canvas)
+        </dd>
+        <dd>
+            @if (Model.Canvas != null)
+            {
+                <img src="@Url.Action("GetImage", new { Model.Id })" class="img-rounded img-edit" />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
