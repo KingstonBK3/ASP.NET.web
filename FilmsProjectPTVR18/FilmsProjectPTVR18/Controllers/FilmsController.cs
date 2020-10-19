@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FilmsProjectPTVR18.Models;
+using PagedList;
 
 namespace FilmsProjectPTVR18.Controllers
 {
@@ -15,9 +16,12 @@ namespace FilmsProjectPTVR18.Controllers
         private FilmsEntities db = new FilmsEntities();
 
         // GET: Films
-        public ActionResult Index()
+        public ActionResult Index( int? page)
         {
-            return View(db.Films.ToList());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            var films = db.Films.OrderBy(p => p.Title).ToList();
+            return View(films.ToPagedList(pageNumber,pageSize));
         }
 
         // GET: Films/Details/5
@@ -46,10 +50,17 @@ namespace FilmsProjectPTVR18.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Year,Description,Cover,ImageMimeType,Country")] Film film)
+        public ActionResult Create([Bind(Include = "Id,Title,Year,Description,Cover,ImageMimeType,Country")] Film film, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
+                if (Image != null)
+                {
+                    film.ImageMimeType = Image.ContentType;
+                    film.Cover = new byte[Image.ContentLength];
+                    Image.InputStream.Read(film.Cover, 0, Image.ContentLength);
+                }
+
                 db.Films.Add(film);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +89,17 @@ namespace FilmsProjectPTVR18.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Year,Description,Cover,ImageMimeType,Country")] Film film)
+        public ActionResult Edit([Bind(Include = "Id,Title,Year,Description,Cover,ImageMimeType,Country")] Film film, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
+                if (Image != null)
+                {
+                    film.ImageMimeType = Image.ContentType;
+                    film.Cover = new byte[Image.ContentLength];
+                    Image.InputStream.Read(film.Cover, 0, Image.ContentLength);
+                }
+
                 db.Entry(film).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -122,6 +140,17 @@ namespace FilmsProjectPTVR18.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //Get image
+        public FileContentResult GetImage(int id)
+        {
+            Film film = db.Films.FirstOrDefault(f => f.Id == id);
+            if (film.Cover != null)
+            {
+                return File(film.Cover, film.ImageMimeType);
+            }
+            return null;
         }
     }
 }

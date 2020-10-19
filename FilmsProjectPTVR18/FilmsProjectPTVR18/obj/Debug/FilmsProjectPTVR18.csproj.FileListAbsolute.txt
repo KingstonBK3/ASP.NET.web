@@ -98,8 +98,12 @@ D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\Microsoft.Owin.Security
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\Microsoft.Owin.Security.OAuth.xml
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.csprojAssemblyReference.cache
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.csproj.CoreCompileInputs.cache
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.csproj.CopyComplete
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.dll
 D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.pdb
+D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\PagedList.dll
+D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\PagedList.Mvc.dll
+D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\PagedList.xml
+D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\bin\PagedList.Mvc.xml
+D:\JPTVR18\ASP\FilmsProjectPTVR18\FilmsProjectPTVR18\obj\Debug\FilmsProjectPTVR18.csprojAssemblyReference.cache

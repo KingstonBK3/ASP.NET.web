@@ -43,12 +43,11 @@
             @Html.DisplayFor(model => model.Cover)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageMimeType)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.ImageMimeType)
+            @if (Model.Cover != null)
+            {
+                <img src="@Url.Action("GetImage", new { id = Model.Id })" class="img-30" />
+            }
         </dd>
 
         <dt>

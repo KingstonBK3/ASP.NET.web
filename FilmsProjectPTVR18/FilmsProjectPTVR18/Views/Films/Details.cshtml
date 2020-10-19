@@ -4,63 +4,36 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Film</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cover)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cover)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageMimeType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageMimeType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-
-    </dl>
+<div class="container-fluid mt-2">
+    <div class="row justify-content-center">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2><a href="#">@Model.Title</a></h2>
+            </div>
+            <div class="col-md-4">
+                @if (Model.Cover != null)
+                {
+                    <img src="@Url.Action("GetImage", new { Model.Id })" class="img-thumbnail" />
+                }
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <b>Описание:</b><br />
+                    @Model.Description
+                </div>
+                <div>
+                    <b>Год выхода:</b>
+                    @Model.Year
+                </div>
+                <div>
+                    <b>Страна:</b>
+                    @Model.Country
+                </div>
+                <div>
+                    <b>Актеры:</b>
+                    @{Html.RenderAction("GetFilmAuthors", "Home", new { id = Model.Id });}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
