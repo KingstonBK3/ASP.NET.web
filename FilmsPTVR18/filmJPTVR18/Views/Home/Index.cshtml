@@ -1,0 +1,23 @@
+﻿@model IEnumerable<filmJPTVR18.Models.Film>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Cinema planet</h1>
+    <p class="lead">Archive of movies and actors.</p>
+</div>
+
+<div class="row">
+    @foreach (var film in Model)
+    {
+     <div class="col-md-4">
+        @if(film.Image != null)
+        {
+            <img src="@Url.Action("GetImage", new { film.Id })" class="img" />
+        }
+        <h2>@film.Title</h2>
+        @Html.ActionLink("Details", "Details", "Films", new { film.Id }, new { @class="btn btn-info" })
+     </div>
+    }
+</div>

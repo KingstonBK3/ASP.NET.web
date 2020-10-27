@@ -1,0 +1,33 @@
+﻿@model IEnumerable<filmJPTVR18.Models.Film>
+
+@{
+    ViewBag.Title = "FilmsWithSearchPost";
+}
+
+@foreach (var film in Model)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                @Html.ActionLink(film.Title, "Details", "Films", new { film.Id }, null)
+            </h2>
+        </div>
+        <div class="col-md-8">
+            <div>
+                @film.Description
+            </div>
+            <div>
+                <b>Release date:</b>
+                @film.Year
+            </div>
+            <div>
+                <b>Country:</b>
+                @film.Country
+            </div>
+            @*<div>
+                <b>Actors:</b>
+                @{Html.RenderAction("GetFilmAuthors", new { id = film.Id });}
+            </div>*@
+        </div>
+    </div>
+}

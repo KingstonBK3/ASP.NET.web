@@ -1,0 +1,10 @@
+﻿@model IEnumerable<filmJPTVR18.Models.FilmActor>
+
+<ul>
+    @foreach(var film in Model)
+    {
+        <li style="list-style-type:none;">
+            @Html.ActionLink(film.Film.Title, "Details", "Films", new { film.Film.Id }, null)
+        </li>
+    }
+</ul>
